@@ -1,0 +1,35 @@
+{
+  "name": "url-shortener",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "sst start --outputs-file ./cdk-outputs.json",
+    "build": "sst build",
+    "deploy": "sst deploy --outputs-file ./cdk-outputs.json",
+    "remove": "sst remove",
+    "console": "sst console",
+    "typecheck": "tsc --noEmit",
+    "test": "sst load-config -- vitest run",
+    "start:fe": "npm run start --workspace"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-lambda": "^3.171.0",
+    "@serverless-stack/cli": "^1.14.4",
+    "@serverless-stack/resources": "^1.14.4",
+    "@tsconfig/node16": "^1.0.3",
+    "aws-cdk-lib": "2.39.1",
+    "typescript": "^4.8.3",
+    "vitest": "^0.23.4"
+  },
+  "workspaces": [
+    "services",
+    "frontend"
+  ],
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.172.0",
+    "@aws-sdk/lib-dynamodb": "^3.172.0",
+    "aws-lambda": "^1.0.7",
+    "nanoid": "^4.0.0",
+    "node-fetch": "^3.2.10"
+  }
+}
